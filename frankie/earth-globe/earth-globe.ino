@@ -14,12 +14,12 @@ SerialRFID rfid(sSerial);
 char tag[SIZE_TAG_ID];
 
 char tagBoiler01[SIZE_TAG_ID] = "5C00CAC9633C";
-char tagBoiler02[SIZE_TAG_ID] = "15002E953F91";
+char tagBoiler02[SIZE_TAG_ID] = "10001B96A73A";
 
 char tagGate01[SIZE_TAG_ID] = "5C00CB17C444";
-char tagGate02[SIZE_TAG_ID] = "10001B96A73A";
+char tagGate02[SIZE_TAG_ID] = "15002E953F91";
 
-char tagStorm01[SIZE_TAG_ID] = "5C00CB17DC5C";
+char tagStorm01[SIZE_TAG_ID] = "0C007E195E35";
 char tagStorm02[SIZE_TAG_ID] = "10001B02ABA2";
 
 void openBoiler() {
@@ -34,7 +34,7 @@ void openGate() {
 
 void openStormRoom() {
   Serial.println("Opening storm room");
-  digitalWrite(RELAY_PIN_3, LOW);
+  digitalWrite(RELAY_PIN_3, HIGH);
 }
 
 void initRelays() {
@@ -44,7 +44,7 @@ void initRelays() {
 
   digitalWrite(RELAY_PIN_1, LOW);
   digitalWrite(RELAY_PIN_2, LOW);
-  digitalWrite(RELAY_PIN_3, HIGH);
+  digitalWrite(RELAY_PIN_3, LOW);
 }
 
 void setup() {
