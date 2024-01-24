@@ -92,7 +92,7 @@ const byte SOLUTION_KEY[SOLUTION_SIZE] = {
 
 const byte PIN_AUDIO_RST = 9;
 const byte PIN_AUDIO_ACT = 3;
-const byte AUDIO_PINS[PROX_SENSORS_NUM] = {8, 7, 6, 5};
+const byte AUDIO_PINS[PROX_SENSORS_NUM] = {8, 6, 5, 4};
 const byte PIN_AUDIO_FINAL = 10;
 
 /**
