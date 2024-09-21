@@ -1,6 +1,6 @@
 #include "rdm630.h"
 #include <Automaton.h>
-#include <Atm_servo.h>
+//#include <Atm_servo.h>
 #include <Adafruit_NeoPixel.h>
 
 /**
@@ -36,7 +36,7 @@ String validTags[NUM_READERS] = {
     "2B00463A2100",
     "1D0027F79300",
     "2B0045A3D800",
-    "2B00455B4700"};
+    "3C00D5846F00"};
 
 /**
  * LED.
@@ -72,8 +72,8 @@ const int SERVO_TIMER_MS = 60;
 const int SERVO_POS_HI = 20;
 const int SERVO_POS_LO = 150;
 
-Atm_servo servo;
-Atm_timer timerServo;
+//Atm_servo servo;
+//Atm_timer timerServo;
 
 /**
  * Program state.
@@ -152,32 +152,32 @@ void updateState()
  * Servo functions.
  */
 
-void onServoTimer(int idx, int v, int up)
-{
-    if (!progState.isServoEnabled)
-    {
-        return;
-    }
-
-    int servoPos = up % 2 == 0 ? SERVO_POS_HI : SERVO_POS_LO;
-
-    Serial.print(F("Servo: "));
-    Serial.println(servoPos);
-
-    servo.position(servoPos);
-}
-
-void initServo()
-{
-    servo
-        .begin(SERVO_PIN)
-        .step(SERVO_STEP_SIZE, SERVO_STEP_TIME);
-
-    timerServo.begin(SERVO_TIMER_MS)
-        .repeat(-1)
-        .onTimer(onServoTimer)
-        .start();
-}
+//void onServoTimer(int idx, int v, int up)
+//{
+//    if (!progState.isServoEnabled)
+//    {
+//        return;
+//    }
+//
+//    int servoPos = up % 2 == 0 ? SERVO_POS_HI : SERVO_POS_LO;
+//
+//    Serial.print(F("Servo: "));
+//    Serial.println(servoPos);
+//
+//    servo.position(servoPos);
+//}
+//
+//void initServo()
+//{
+//    servo
+//        .begin(SERVO_PIN)
+//        .step(SERVO_STEP_SIZE, SERVO_STEP_TIME);
+//
+//    timerServo.begin(SERVO_TIMER_MS)
+//        .repeat(-1)
+//        .onTimer(onServoTimer)
+//        .start();
+//}
 
 /**
  * RFID functions.
