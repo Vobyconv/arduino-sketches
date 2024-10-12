@@ -14,7 +14,7 @@ Atm_button proxSensorsBtn[PROX_SENSORS_NUM];
  * LED strips.
  */
 
-const uint8_t LED_BRIGHTNESS = 150;
+const uint8_t LED_BRIGHTNESS = 190;
 const uint8_t LED_TORCHES_NUM = 24;
 const uint8_t LED_TORCHES_PINS[PROX_SENSORS_NUM] = {6, 7, 8};
 
@@ -25,7 +25,7 @@ Adafruit_NeoPixel ledsTorches[PROX_SENSORS_NUM] = {
     Adafruit_NeoPixel(LED_TORCHES_NUM, LED_TORCHES_PINS[1], NEO_GRB + NEO_KHZ800),
     Adafruit_NeoPixel(LED_TORCHES_NUM, LED_TORCHES_PINS[2], NEO_GRB + NEO_KHZ800)};
 
-const uint16_t LED_BONFIRE_NUM = 250;
+const uint16_t LED_BONFIRE_NUM = 150;
 const uint8_t LED_BONFIRE_PIN = 12;
 
 Adafruit_NeoPixel ledBonfire = Adafruit_NeoPixel(LED_BONFIRE_NUM, LED_BONFIRE_PIN, NEO_GRB + NEO_KHZ800);
@@ -48,7 +48,7 @@ const uint8_t PIN_AUDIO_FINAL = A2;
  * Program state.
  */
 
-const uint8_t SENSOR_SOLUTION[PROX_SENSORS_NUM] = {0, 1, 2};
+const uint8_t SENSOR_SOLUTION[PROX_SENSORS_NUM] = {1, 2, 0};
 
 CircularBuffer<uint8_t, PROX_SENSORS_NUM> sensorHistory;
 
@@ -235,8 +235,8 @@ void loopBonfire()
     float green = startGreen + ratio * (endGreen - startGreen);
     float blue = startBlue + ratio * (endBlue - startBlue);
 
-    int flicker = random(0, 21) - 10;
-    red = constrain(red + flicker, 0, 255);
+    int flicker = random(0, 51) - 10;
+    red = constrain(red, 0, 255);
     green = constrain(green + flicker, 0, 255);
     blue = constrain(blue + flicker, 0, 255);
 
